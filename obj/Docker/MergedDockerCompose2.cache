@@ -1,0 +1,65 @@
+name: dockercompose11970687018474832696
+services:
+  cassandra:
+    environment:
+      CASSANDRA_PASSWORD: cassandra
+      CASSANDRA_PASSWORD_SEEDER: "yes"
+      CASSANDRA_SEEDS: ' cassandra'
+    healthcheck:
+      test:
+      - CMD
+      - /opt/bitnami/cassandra/bin/cqlsh
+      - -u cassandra
+      - -p cassandra
+      - -e "test"
+      timeout: 10s
+      interval: 15s
+      retries: 10
+    image: docker.io/bitnami/cassandra:latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 7000
+      published: "7000"
+      protocol: tcp
+    - mode: ingress
+      target: 9042
+      published: "9042"
+      protocol: tcp
+    volumes:
+    - type: volume
+      source: cassandra_data
+      target: /bitnami
+      volume: {}
+  endava.hl7.fhir.openapi:
+    build:
+      context: C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo
+      dockerfile: src/Endava.Hl7.Fhir.OpenAPI/Dockerfile
+    container_name: Endava.HL7.FHIR.OpenAPI
+    environment:
+      ASPNETCORE_ENVIRONMENT: Docker
+      ASPNETCORE_URLS: http://+:80
+    hostname: Endava.HL7.FHIR.OpenAPI
+    image: endavahl7fhiropenapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "10500"
+      protocol: tcp
+    restart: on-failure
+    volumes:
+    - type: bind
+      source: C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\csv-files
+      target: /Resources/Files
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose11970687018474832696_default
+volumes:
+  cassandra_data:
+    name: dockercompose11970687018474832696_cassandra_data
+    driver: local

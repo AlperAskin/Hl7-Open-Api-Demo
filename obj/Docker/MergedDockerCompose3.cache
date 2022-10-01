@@ -1,0 +1,116 @@
+name: dockercompose11970687018474832696
+services:
+  cassandra:
+    environment:
+      CASSANDRA_PASSWORD: cassandra
+      CASSANDRA_PASSWORD_SEEDER: "yes"
+      CASSANDRA_SEEDS: ' cassandra'
+    healthcheck:
+      test:
+      - CMD
+      - /opt/bitnami/cassandra/bin/cqlsh
+      - -u cassandra
+      - -p cassandra
+      - -e "test"
+      timeout: 10s
+      interval: 15s
+      retries: 10
+    image: docker.io/bitnami/cassandra:latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 7000
+      published: "7000"
+      protocol: tcp
+    - mode: ingress
+      target: 9042
+      published: "9042"
+      protocol: tcp
+    volumes:
+    - type: volume
+      source: cassandra_data
+      target: /bitnami
+      volume: {}
+  endava.hl7.fhir.openapi:
+    build:
+      context: C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo
+      dockerfile: src/Endava.Hl7.Fhir.OpenAPI/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Endava.Hl7.Fhir.OpenAPI
+      target: base
+    container_name: Endava.HL7.FHIR.OpenAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Docker
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    hostname: Endava.HL7.FHIR.OpenAPI
+    image: endavahl7fhiropenapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/Endava.Hl7.Fhir.OpenAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "10500"
+      protocol: tcp
+    restart: on-failure
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\csv-files
+      target: /Resources/Files
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.OpenAPI
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\alper\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\alper\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\alper\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\alper\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo
+      target: /src
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose11970687018474832696_default
+volumes:
+  cassandra_data:
+    name: dockercompose11970687018474832696_cassandra_data
+    driver: local

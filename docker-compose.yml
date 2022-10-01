@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  endava.hl7.fhir.openapi:
+    container_name: Endava.HL7.FHIR.OpenAPI
+    image: ${DOCKER_REGISTRY-}endavahl7fhiropenapi
+    restart: on-failure
+    hostname: Endava.HL7.FHIR.OpenAPI
+    build:
+      context: .
+      dockerfile: src/Endava.Hl7.Fhir.OpenAPI/Dockerfile
+    volumes:
+      - "./csv-files:/Resources/Files"
+   
+  cassandra:
+    image: docker.io/bitnami/cassandra:latest
+    ports:
+     - '7000:7000'
+     - '9042:9042'
+    volumes:
+     - 'cassandra_data:/bitnami' 
+    healthcheck:
+     test: [ "CMD", "/opt/bitnami/cassandra/bin/cqlsh", "-u cassandra", "-p cassandra", "-e \"test\"" ]
+     interval: 15s
+     timeout: 10s
+     retries: 10
+    environment:
+     - CASSANDRA_SEEDS= cassandra
+     - CASSANDRA_PASSWORD_SEEDER=yes 
+     - CASSANDRA_PASSWORD=cassandra
+volumes:
+  cassandra_data:
+    driver: local
+
+
+    
+    

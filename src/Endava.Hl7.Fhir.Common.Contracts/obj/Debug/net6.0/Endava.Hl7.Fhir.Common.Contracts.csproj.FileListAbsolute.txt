@@ -1,0 +1,12 @@
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\bin\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.deps.json
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\bin\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.dll
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\bin\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.pdb
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.csproj.AssemblyReference.cache
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.AssemblyInfoInputs.cache
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.AssemblyInfo.cs
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.dll
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\refint\Endava.Hl7.Fhir.Common.Contracts.dll
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\Endava.Hl7.Fhir.Common.Contracts.pdb
+C:\Users\alper\source\repos\Endava.Hl7.Fhir.OpenAPI.Demo\src\Endava.Hl7.Fhir.Common.Contracts\obj\Debug\net6.0\ref\Endava.Hl7.Fhir.Common.Contracts.dll

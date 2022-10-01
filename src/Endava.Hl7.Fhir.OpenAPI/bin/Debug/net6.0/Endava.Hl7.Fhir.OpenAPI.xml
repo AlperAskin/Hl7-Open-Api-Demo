@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Endava.Hl7.Fhir.OpenAPI</name>
+    </assembly>
+    <members>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.Base.BaseController`1.ModelStateErrors">
+            <summary>
+            Return ModelState errors
+            </summary>
+            <returns>List of errors</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.MedicationController.GetPatientMedicationsAsync(System.String)">
+            <summary>
+            Get Patient's Medications
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>Return list of Medications</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.MedicationController.PutPatientMedications(System.String)">
+            <summary>
+            Add Patient Medication
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <response code="200">Success</response>
+            <response code="400">Bad Request</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.GetObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets all Patient's observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.GetHemoglobinObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets Patient's hemoglobin observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of hemoglobin observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.GetRedBloodCellCountObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets Patient's red blood cell (RBCs) count observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of red bloodcell count observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.GetWhiteBloodCellCountObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets Patient's white blood cell (WBCs) count observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of white bloodcell count observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.AddHemoglobinObservationAsync(System.String,System.Decimal)">
+            <summary>
+            Add hemoglobin observation
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <param name="value">Hemoglobin value</param>
+            <returns>Return observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.AddRedBloodCellCountObservationAsync(System.String,System.Decimal)">
+            <summary>
+            Add red blood cell count (RBCs) observation
+            </summary>
+            <returns>Return observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.ObservationController.AddWhiteBloodCellCountObservationAsync(System.String,System.Decimal)">
+            <summary>
+            Add white blood cell count (WBCs) observation
+            </summary>
+            <returns>Return observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.OrganizationController.AddOrganizationAsync(System.String,System.String,System.String)">
+            <summary>
+            Add new Organization
+            </summary>
+            <param name="identifier">Identifier (ex. ORG0001)</param>
+            <param name="name">Name of Organization</param>
+            <param name="contactPhone">Contact Phone</param>
+            <returns>Return added Organization</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.OrganizationController.GetByIdentifierAsync(System.String)">
+            <summary>
+            Get Organization by identifier
+            </summary>
+            <param name="identifier">Identifier (ex. ORG0001)</param>
+            <returns>Return Organization</returns>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController">
+            <summary>
+            OpenAPI controller for managing patients
+            </summary>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.CreatePatientAsync(Endava.Hl7.Fhir.Common.Contracts.Dto.PatientDto)">
+            <summary>
+            Create a new Patient
+            </summary>
+            <returns>Return Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.DeleteByIdentifierAsync(System.String)">
+            <summary>
+            Delete Patient by identifier
+            </summary>
+            <param name="identifier">Identifier (ex. PAT0001)</param>
+            <returns>Success</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.GetAsync(System.Int32)">
+            <summary>
+            Get Patients
+            </summary>
+            <param name="pageSize">Page size, default = 10</param>
+            <returns>Return Patient</returns>[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PatientDetailDto))]
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.GetByIdentifierAsync(System.String)">
+            <summary>
+            Get Patient by identifier
+            </summary>
+            <param name="identifier">Identifier (ex. PAT0001)</param>
+            <returns>Return Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.GetByResourceIdAsync(System.String)">
+            <summary>
+            Get Patient by resource Id
+            </summary>
+            <param name="resourceId">Resource Id</param>
+            <returns>Return Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.UpdateMaritalStatusAsync(System.String,System.String)">
+            <summary>
+            Update Patient Marital Status
+            </summary>
+            <param name="resourceId">Resource Id</param>
+            <param name="maritalStatusCode">Marital Status Code</param>
+            <returns>Return Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.UpdatePatientAsync(Endava.Hl7.Fhir.Common.Contracts.Dto.PatientDto)">
+            <summary>
+            Update Patient
+            </summary>
+            <param name="patient">Patient Dto</param>
+            <returns>Return Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Controllers.V1.PatientController.UploadPatientsAsync">
+            <summary>
+            Uploads a CSV file with Patients
+            </summary>
+            <returns>Operation status</returns>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Converters.PatientCsvToPatientConverter">
+            <summary>
+            Patient to PatientDto converter
+            </summary>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Converters.PatientDtoToPatientConverter">
+            <summary>
+            Patient to PatientDto converter
+            </summary>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Extensions.AppExtensions.UseApiExceptionHandling(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds global exception handling middleware
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Extensions.AppExtensions.UseSwaggerMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Register Swagger and SwaggerUI middleware
+            </summary>
+            <param name="app"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Extensions.AppExtensions.UseReDocMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Register the ReDoc middleware
+            </summary>
+            <param name="app"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Extensions.ServiceExtensions.AddAndConfigureApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds service API versioning
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Extensions.ServiceExtensions.AddCorsPolicy(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            Adds cross-origin resource sharing services
+            </summary>
+            <param name="services"></param>
+            <param name="policyName"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Extensions.ServiceExtensions.AddSwaggerMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds Swagger support
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Middleware.ApiExceptionHandlingMiddleware">
+            <summary>
+            Api Exception Handling Middleware
+            </summary>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Middleware.ApiExceptionHandlingMiddleware.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            Handle exception with modifying response
+            </summary>
+            <param name="context">HttpContext</param>
+            <param name="ex">Exception</param>
+            <returns>Task</returns>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Services.CitizenshipService">
+            <summary>
+            Reads citizenship county codes from csv file.
+            https://dw.opm.gov/datastandards/referenceData/1422/current?index=C
+            </summary>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Helpers.RequestLogHelper.EnrichDiagnosticContext(Serilog.IDiagnosticContext,Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Enriches diagnostic context from request
+            </summary>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Services.Helpers.UnitTestDetector">
+            <summary>
+            Detect if we are running as part of a nUnit/xUnitunit test.
+            This is DIRTY and should only be used if absolutely necessary 
+            as its usually a sign of bad design.
+            </summary>    
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.MedicationService.GetMedicationDataForPatientAsync(System.String)">
+            <summary>
+            Get patient's medications
+            </summary>
+            <param name="patientId">Patient id</param>
+            <returns>List of medications</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.AddHemoglobinObservationAsync(System.String,System.Decimal)">
+            <summary>
+            Create new hemoglobin observation for a Patient
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <param name="value"></param>
+            <returns>Added observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.AddRedBloodCellCountObservationAsync(System.String,System.Decimal)">
+            <summary>
+            Create new red blood cell count observation for a Patient
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <param name="value"></param>
+            <returns>Added observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.AddWhiteBloodCellCountObservationAsync(System.String,System.Decimal)">
+            <summary>
+            Create new white blood cell count observation for a Patient
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <param name="value"></param>
+            <returns>Added observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.GetHemoglobinObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets Patient's hemoglobin observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of hemoglobin observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.GetObservationAsync(System.String)">
+            <summary>
+            Get Patient's single observation
+            </summary>
+            <param name="observationId">Observation resource Id</param>
+            <returns>Observation</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.GetObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets all Patient's observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.GetRedBloodCellCountObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets Patient's red blood cell count observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of red bloodcell count observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.GetWhiteBloodCellCountObservationsForPatientAsync(System.String)">
+            <summary>
+            Gets Patient's white blood cell count observations
+            </summary>
+            <param name="patientId">Patient resource Id</param>
+            <returns>List of white bloodcell count observations</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.ObservationService.CreateObservation(System.String,Endava.Hl7.Fhir.Common.Contracts.Models.ObservationBase,System.DateTimeOffset,System.Int32,Hl7.Fhir.Model.ObservationStatus)">
+            <summary>
+            Generic private method for creating observations
+            </summary>
+            <param name="patientId"></param>
+            <param name="observation"></param>
+            <param name="timeStamp"></param>
+            <param name="seqNumber"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.OrganizationService.AddOrganizationAsync(System.String,System.String,System.String)">
+            <summary>
+            Add new Organization to the server
+            </summary>
+            <param name="identifier">Identifier</param>
+            <param name="name">Name</param>
+            <param name="contactPhone">Contact Phone</param>
+            <returns>Added Organization</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.OrganizationService.SearchByIdentifierAsync(System.String)">
+            <summary>
+            Get Organization by identifier
+            </summary>
+            <param name="identifier"></param>
+            <returns>Organization</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.OrganizationService.CreateOrganization(System.String,System.String,System.String)">
+            <summary>
+            Create Organization
+            </summary>
+            <param name="identifier"></param>
+            <param name="name"></param>
+            <param name="contactPhone"></param>
+            <returns>New Organization</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.CreatePatientAsync(Endava.Hl7.Fhir.Common.Contracts.Dto.PatientDto)">
+            <summary>
+            Create a new Patient
+            </summary>
+            <param name="patient"></param>
+            <returns>New Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.CreatePatientsAsync(System.Collections.Generic.IEnumerable{Endava.Hl7.Fhir.Common.Contracts.Models.PatientCsv})">
+            <summary>
+            Create patients from CSV list
+            </summary>
+            <param name="patientsCsv">List of patients</param>
+            <returns>Number of created patients</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.DeletePatientByIdentifierAsync(System.String)">
+            <summary>
+            Delete Patient by identifier
+            </summary>
+            <param name="identifier"></param>
+            <returns>Success/Fail</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.ExistingPatientsAsync(System.Collections.Generic.IEnumerable{Endava.Hl7.Fhir.Common.Contracts.Models.PatientCsv})">
+            <summary>
+            Get list of existing Patients
+            </summary>
+            <param name="patientsCsv"></param>
+            <returns>List of existing Patients</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.GetPatientsAsync(System.Int32)">
+            <summary>
+            
+            </summary>Get Patients page
+            <param name="pageSize">Page size (default 10)</param>
+            <returns>List of Patients</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.GetPatientsByNameAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>Get Patients by first and last name
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <returns>List of Patients</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.ParsePatients(System.Byte[])">
+            <summary>
+            Parse Patients from memory stream
+            </summary>
+            <param name="fileContent"></param>
+            <returns>List of CSV Patients</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.SearchByIdentifierAsync(System.String)">
+            <summary>
+            Get Patient by identifier
+            </summary>
+            <param name="identifier"></param>
+            <returns>Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.SearchByResourceIdAsync(System.String)">
+            <summary>
+            Get Patient by resource Id
+            </summary>
+            <param name="resourceId"></param>
+            <returns>Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.UpdatePatientAsync(Endava.Hl7.Fhir.Common.Contracts.Dto.PatientDto)">
+            <summary>
+            Update existing Patient
+            </summary>
+            <param name="patientDto"></param>
+            <returns>Updated Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.UpdatePatientMaritalStatusAsync(System.String,System.String)">
+            <summary>
+            Update Patient's marital status
+            </summary>
+            <param name="resourceId"></param>
+            <param name="maritalStatusCode"></param>
+            <returns>Patient</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.UpdatePatientsAsync(System.Collections.Generic.IEnumerable{Endava.Hl7.Fhir.Common.Contracts.Models.PatientCsv})">
+            <summary>
+            Update patients from CSV list
+            </summary>
+            <param name="patientsCsv">List of patients</param>
+            <returns>Number of updated patients</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.GetMaritalStatus(System.String)">
+            <summary>
+            Get marital status
+            </summary>
+            <param name="maritalStatusCode"></param>
+            <returns>Marital Status</returns>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.PatientService.ValidatePatient(Hl7.Fhir.Model.Patient)">
+            <summary>
+            Validate Patient
+            </summary>
+            <param name="patient"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerGenOptions">
+            <summary>
+            Configures the Swagger generation options
+            </summary>
+            <remarks>This allows API versioning to define a Swagger document per API version after the
+            <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerGenOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider,Microsoft.Extensions.Options.IOptions{Endava.Hl7.Fhir.OpenAPI.Configurations.SwaggerConfig})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerGenOptions"/> class
+            </summary>
+            <param name="apiProvider">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider">apiProvider</see> used to generate Swagger documents.</param>
+            <param name="swaggerConfig"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerGenOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerGenOptions.CreateInfoForApiVersion(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiVersionDescription)">
+            <summary>
+            Create API version
+            </summary>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerUiOptions">
+            <summary>
+            Configures the Swagger UI options
+            </summary>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerUiOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider,Microsoft.Extensions.Options.IOptions{Endava.Hl7.Fhir.OpenAPI.Configurations.SwaggerConfig})">
+            <summary>
+            Initialises a new instance of the <see cref="T:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerUiOptions"/> class.
+            </summary>
+            <param name="apiProvider">The API provider.</param>
+            <param name="swaggerConfig"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.ConfigureSwaggerUiOptions.Configure(Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.Filters.SwaggerDefaultValues">
+            <summary>
+            Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
+            </summary>
+            <remarks>This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"/> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator"/>.
+            Once they are fixed and published, this class can be removed.</remarks>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Services.Swagger.Filters.SwaggerDefaultValues.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Startup.InitializeCitizenshipService(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Load Citizenship list from CSV file
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Startup.RegisterConfigurations(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register a configuration instances which TOptions will bind against
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Endava.Hl7.Fhir.OpenAPI.Startup.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register services and middlewares
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Validators.PatientCsvValidator">
+            <summary>
+            PatientCsv model validator
+            </summary>
+            <remarks>
+            NOTE: Not all properties are validated!
+            </remarks>
+        </member>
+        <member name="T:Endava.Hl7.Fhir.OpenAPI.Validators.PatientDtoValidator">
+            <summary>
+            PatientDto model validator
+            </summary>
+            <remarks>
+            NOTE: Not all properties are validated!
+            </remarks>
+        </member>
+    </members>
+</doc>
